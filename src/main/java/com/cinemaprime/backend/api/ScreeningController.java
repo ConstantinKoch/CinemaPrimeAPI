@@ -22,4 +22,9 @@ public class ScreeningController {
         return repository.findScreeningsByCinemaHall_Cinema_id(id);
     }
 
+    @GetMapping("/cinema/{id}/movie/{mId}")
+    public List<Screening> getScreeningsByCinemaAndMovie(@PathVariable("id") String id, @PathVariable("mId") int mId) {
+        return repository.findScreeningsByCinemaHall_Cinema_idAndMovie_Id(id, mId);
+    }
+
 }
