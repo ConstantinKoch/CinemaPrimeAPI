@@ -5,6 +5,8 @@ import com.cinemaprime.backend.dbmodels.cinemamodels.Cinema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("cinema")
@@ -34,7 +36,7 @@ public class CinemaController {
     }
 
     @GetMapping
-    public void findAll() {repository.findAll();}
+    public List<Cinema> findAll() {return repository.findAll();}
 }
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Cinema not found")
