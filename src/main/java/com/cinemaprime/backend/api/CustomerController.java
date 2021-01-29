@@ -1,5 +1,6 @@
 package com.cinemaprime.backend.api;
 
+import com.cinemaprime.backend.api.apimodels.Token;
 import com.cinemaprime.backend.dao.CustomerRepository;
 import com.cinemaprime.backend.dbmodels.usermodels.Customer;
 import com.cinemaprime.backend.dbmodels.usermodels.Person;
@@ -16,21 +17,26 @@ public class CustomerController {
     private CustomerService service;
 
     @PostMapping("/signup")
-    public String signup(@RequestBody Customer customer) {
+    public Token signup(@RequestBody Customer customer) {
         Customer customerExist = service.findCustomerByMail(customer.getEmail());
         if (customerExist != null) throw new CustomerExistException();
 
-        return service.signup(customer);
+        return new Token(service.signup(customer));
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody Customer customer) {
-        return service.login(customer);
+    public Token login(@RequestBody Customer customer) {
+        return new Token(service.login(customer));
     }
 
     @PostMapping("/find")
     public HttpStatus find(@RequestBody Customer customer) {
         return service.findCustomerByMail(customer.getEmail()) != null ? HttpStatus.FOUND : HttpStatus.NOT_FOUND;
+    }
+
+    @GetMapping("/find/{token}")
+    public Customer find(@PathVariable("token") Token token) {
+        return service.find(token);
     }
 
 }

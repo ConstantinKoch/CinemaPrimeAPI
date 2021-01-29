@@ -26,7 +26,7 @@ public class JwtTokenProvider {
     private String secretKey = SecurityConstants.getSecretKey();
 
     @Value("${security.jwt.token.expire-length:3600000}")
-    private long validityInMilliseconds = 3600000; // 1h
+    private final long validityInMilliseconds = 3600000; // 1h
 
     @Autowired
     private CustomerService customerService;
@@ -55,7 +55,7 @@ public class JwtTokenProvider {
         return new UsernamePasswordAuthenticationToken(userDetails, "");
     }
 
-    private String getEmail(String token) {
+    public String getEmail(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 

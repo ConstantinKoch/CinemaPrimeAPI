@@ -1,5 +1,6 @@
 package com.cinemaprime.backend.services;
 
+import com.cinemaprime.backend.api.apimodels.Token;
 import com.cinemaprime.backend.config.security.JwtTokenProvider;
 import com.cinemaprime.backend.dao.CustomerRepository;
 import com.cinemaprime.backend.dbmodels.usermodels.Customer;
@@ -43,7 +44,7 @@ public class CustomerService implements UserDetailsService {
             throw new UsernameNotFoundException("Email not found");
         }
 
-        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("user"));
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
 
         return buildUserForAuthentication(customer, authorities);
     }
@@ -81,5 +82,9 @@ public class CustomerService implements UserDetailsService {
 
     public String refresh(String email) {
         return jwtTokenProvider.createToken(email);
+    }
+
+    public Customer find(Token token) {
+        return findCustomerByMail(jwtTokenProvider.getEmail(token.getToken()));
     }
 }

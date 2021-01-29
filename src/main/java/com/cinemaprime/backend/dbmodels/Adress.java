@@ -27,6 +27,14 @@ public class Adress {
         this.Adresszusatz = adresszusatz;
     }
 
+    public Adress(String land, String stadt, long plz, String strasse, int hausnummer){
+        this.Land = land;
+        this.Stadt = stadt;
+        this.PLZ = plz;
+        this.Strasse = strasse;
+        this.Hausnummer = hausnummer;
+    }
+
     public String returnFullAdress(){
         String fullAdress;
         fullAdress = getStrasse() + " " + getHausnummer() + " " + getAdresszusatz() + " " + getPLZ() + " " + getStadt() + " " + getLand();

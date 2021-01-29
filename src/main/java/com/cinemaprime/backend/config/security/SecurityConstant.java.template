@@ -1,0 +1,14 @@
+package com.cinemaprime.backend.config.security;
+
+public class SecurityConstant {
+    private static final String apiKey = "";
+    private static final String secretKey = "";
+
+    public static String getApiKey() {
+        return apiKey;
+    }
+
+    public static String getSecretKey() {
+        return secretKey;
+    }
+}
