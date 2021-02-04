@@ -23,4 +23,8 @@ public class CinemaHall {
             }
         }
     }
+
+    public Seat[][] copySeats() {
+        return this.seats.clone();
+    }
 }

@@ -17,6 +17,7 @@ public interface ScreeningRepository extends MongoRepository<Screening, Integer>
     List<Screening> findScreeningsByMovieAndCinemaHall_Cinema(Movie movie, Cinema cinema);
     List<Screening> findScreeningsByCinemaHall_Cinema(Cinema cinema);
     List<Screening> findScreeningsByCinemaHall_CinemaAndDate(Cinema cinema, int date);
+    List<Screening> findScreeningsByMovie_Id(int id);
     List<Screening> findScreeningsByCinemaHall_Cinema_id(String id);
     List<Screening> findScreeningsByCinemaHall_Cinema_idAndMovie_Id(String cinemaHall_cinema_id, int movie_id);
 }

@@ -11,4 +11,6 @@ import java.util.List;
 public interface CinemaHallRepository extends MongoRepository<CinemaHall, Integer> {
 
     List<CinemaHall> findCinemaHallsByCinema(Cinema cinema);
+
+    CinemaHall findCinemaHallById(int id);
 }
