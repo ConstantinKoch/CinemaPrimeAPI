@@ -18,7 +18,7 @@ public class CinemaController {
 
     @GetMapping("/name/{name}")
     public Cinema getCinema(@PathVariable("name") String name) {
-        return repository.findByName(name);
+        return repository.findCinemaByName(name);
     }
 
     @GetMapping("/id/{id}")

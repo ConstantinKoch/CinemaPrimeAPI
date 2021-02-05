@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface CinemaRepository extends MongoRepository<Cinema, String> {
 
-    Cinema findByName(String name);
+    Cinema findCinemaByName(String name);
     Optional<Cinema> findById(String id);
     List<Cinema> findAll();
 }

@@ -2,6 +2,7 @@ package com.cinemaprime.backend.dbmodels.cinemamodels;
 
 import com.cinemaprime.backend.dbmodels.Adress;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "cinemas")
@@ -16,8 +17,7 @@ public class Cinema {
     private OpeningHours openingHours;
     // private List<CinemaHall> cinemaHalls;
 
-    public Cinema() {}
-
+    @PersistenceConstructor
     public Cinema(String name) {
         this.name = name;
     }

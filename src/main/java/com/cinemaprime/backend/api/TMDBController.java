@@ -25,6 +25,9 @@ public class TMDBController {
         return tmdbService.getMovies(query);
     }
 
+    @GetMapping("/findId/{id}")
+    public Movie getMovieById(@PathVariable("id") int id) {return tmdbService.getMovie(id);}
+
     @GetMapping("running")
     public List<Movie> getRunningMovies() {
         return tmdbService.getRunning();

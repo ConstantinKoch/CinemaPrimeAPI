@@ -22,6 +22,12 @@ public class TMDBService {
         return movieResults.getResults();
     }
 
+    public Movie getMovie(int id) {
+        Movie movie = new RestTemplate().getForObject(af.getUri("/movie/" + id), Movie.class);
+        assert movie != null;
+        return movie;
+    }
+
     public List<Movie> getRunning() {
         MovieResults movieResults = new RestTemplate().getForObject(af.getUri("movie/now_playing"), MovieResults.class);
         assert movieResults != null;
