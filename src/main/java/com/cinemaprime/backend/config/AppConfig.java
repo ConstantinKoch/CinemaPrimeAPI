@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 @Configuration
 public class AppConfig {
     public @Bean MongoClient mongoClient() {
-        return MongoClients.create("mongodb+srv://cinemaprime:MeinKinoIstSicher@cluster0.uris2.mongodb.net/cinemaprime?retryWrites=true&w=majority");
+        return MongoClients.create();
     }
 
     public @Bean MongoTemplate mongoTemplate() {

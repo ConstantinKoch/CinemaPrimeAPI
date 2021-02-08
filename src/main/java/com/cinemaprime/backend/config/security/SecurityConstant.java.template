@@ -1,8 +1,9 @@
 package com.cinemaprime.backend.config.security;
 
-public class SecurityConstant {
+public class SecurityConstants {
     private static final String apiKey = "";
     private static final String secretKey = "";
+    private static final String mongoURI = "";
 
     public static String getApiKey() {
         return apiKey;
@@ -10,5 +11,9 @@ public class SecurityConstant {
 
     public static String getSecretKey() {
         return secretKey;
+    }
+
+    public static String getMongoURI() {
+        return mongoURI;
     }
 }
